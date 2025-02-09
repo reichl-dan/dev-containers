@@ -1,0 +1,8 @@
+{
+  "name": "Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "runArgs": ["--name", "dev-container"],
+  "remoteUser": "vscode"
+}
