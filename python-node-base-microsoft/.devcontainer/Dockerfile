@@ -20,15 +20,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   python${PYTHON_VERSION}-dev \
   && rm -rf /var/lib/apt/lists/*
 
-# Install Node.js globally and PNPM, then remove npm
+# Install Node.js globally and PNPM
 RUN curl -fsSL https://deb.nodesource.com/setup_$NODE_VERSION.x | bash - \
   && apt-get install -y nodejs \
   && npm install -g pnpm --prefix /home/${USERNAME}/.local \
   && chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}/.local \
-  && apt-get remove -y npm \
-  && apt-get autoremove -y \
-  && rm -rf /var/lib/apt/lists/* \
-  && rm -rf /usr/lib/node_modules/npm /usr/share/man/man1/npm* /usr/bin/npm /usr/bin/npx
+  && rm -rf /var/lib/apt/lists/*
 
 # Switch to non-root user
 USER ${USERNAME}
