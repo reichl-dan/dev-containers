@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/vscode/devcontainers/base:bookworm
 
 # Define build arguments
 ARG PYTHON_VERSION=3.11
-ARG NODE_VERSION=22
+ARG NODE_VERSION=20
 ARG USERNAME=vscode
 
 # Set environment variables
